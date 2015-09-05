@@ -8,13 +8,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 /**
  * Created by claudiu.haidu on 7/17/2015.
  */
 public class RegistrationActivity extends Activity{
 
-EditText ContactName,ContactMobile,ContactEmail;
+EditText EmployeetName,EmployeeSurname,EmployeeBirthdate;
+    ToggleButton EmployeeGender;
 Context context=this;
 UserDBHelper userDBHelper;
 SQLiteDatabase sqLiteDatabase;
@@ -23,21 +25,26 @@ TextView tvUIHelperObject;
     {
         super.onCreate(instance);
         setContentView(R.layout.registration);
-        ContactName = (EditText) findViewById(R.id.etContactName);
-        ContactMobile = (EditText) findViewById(R.id.etMobileNumber);
-        ContactEmail = (EditText)findViewById(R.id.etEmailAddress);
+        EmployeetName = (EditText) findViewById(R.id.etEmployeeName);
+        EmployeeSurname = (EditText) findViewById(R.id.etEmployeeSurname);
+        //EmployeeGender = (EditText)findViewById(R.id.etEmployeeGender);
+
+        EmployeeGender = (ToggleButton)findViewById(R.id.toggleSex);
+        EmployeeBirthdate = (EditText)findViewById(R.id.etEmployeeBirthdate);
        tvUIHelperObject=(TextView) findViewById(R.id.tvUIHelper);
 
 
     }
     public void insertContact(View v)
     {
-        String name = ContactName.getText().toString();
-        String mob = ContactMobile.getText().toString();
-        String email= ContactEmail.getText().toString();
+        String name = EmployeetName.getText().toString();
+        String surname = EmployeeSurname.getText().toString();
+        String gender= EmployeeGender.getText().toString();
+        String birthdate= EmployeeBirthdate.getText().toString();
+
         userDBHelper = new UserDBHelper(context);
         sqLiteDatabase=userDBHelper.getWritableDatabase();
-        userDBHelper.insertInfo(name, mob, email, sqLiteDatabase);
+        userDBHelper.insertInfo(name, surname, gender,birthdate, sqLiteDatabase);
         Toast.makeText(getBaseContext(),"Data Saved",Toast.LENGTH_LONG).show();
        tvUIHelperObject.setText("Data Saved");
         userDBHelper.close();

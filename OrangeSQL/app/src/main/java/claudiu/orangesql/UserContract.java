@@ -7,9 +7,10 @@ public class UserContract {
 
     public static abstract class NewUserInfo{
 
-        public static final String USER_NAME = "user_name";
-        public static final String USER_MOB = "user_mob";
-        public static final String USER_EMAIL = "user_email";
+        public static final String EMPLOYEE_NAME = "employee_name";
+        public static final String EMPLOYEE_SURNAME = "employee_surname";
+        public static final String EMPLOYEE_GENDER = "employee_gender";
+        public static final String EMPLOYEE_BIRTHDATE = "employee_birthdate";
         public static final String TABLE_NAME = "user_info";
 
     }

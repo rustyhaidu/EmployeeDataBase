@@ -6,15 +6,16 @@ package claudiu.orangesql;
 public class DataProvider {
 
     private String name;
-    private String mob;
-    private String email;
+    private String surname;
+    private String gender;
+    private String birthdate;
 
-    public String getEmail() {
-        return email;
+    public String getBirthdate() {
+        return birthdate;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
     }
 
     public String getName() {
@@ -25,20 +26,30 @@ public class DataProvider {
         this.name = name;
     }
 
-    public String getMob() {
-        return mob;
+    public String getSurname() {
+        return surname;
+    }
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public void setMob(String mob) {
-        this.mob = mob;
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getGender() {
+        return gender;
     }
 
 
 
-    public DataProvider(String name, String mob, String email){
+
+    public DataProvider(String name, String surname, String gender,String birthdate){
         this.name = name;
-        this.mob=mob;
-        this.email=email;
+        this.surname=surname;
+        this.gender=gender;
+        this.birthdate=birthdate;
     }
 
 }

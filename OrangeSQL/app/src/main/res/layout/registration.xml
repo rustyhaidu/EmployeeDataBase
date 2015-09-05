@@ -7,29 +7,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Add New Contact"
+        android:text="Add New Employee"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Contact Name"
-        android:id="@+id/etContactName" />
+        android:hint="Employee Name"
+        android:id="@+id/etEmployeeName" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etMobileNumber"
-        android:hint="Mobile Number"
-        android:inputType="number"/>
+        android:id="@+id/etEmployeeSurname"
+        android:hint="Surname"
+        android:inputType="text"/>
+
+    <ToggleButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New ToggleButton"
+        android:textOff="Male"
+        android:textOn="Female"
+        android:id="@+id/toggleSex" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etEmailAddress"
-        android:hint="Email Address"
-       />
+        android:id="@+id/etEmployeeBirthdate"
+        android:hint="Employee Birthdate"
+        />
 
     <Button
         android:layout_width="wrap_content"

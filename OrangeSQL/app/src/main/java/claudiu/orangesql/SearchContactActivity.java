@@ -13,13 +13,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 /**
  * Created by Claudiu on 9/1/2015.
  */
 public class SearchContactActivity extends ActionBarActivity {
-    TextView display_email, display_mobile;
-    EditText search_name, updateName, updateMobile, updateEmail;
+    TextView display_name, display_surname;
+    EditText search_name, updateName, updateSurname, updateGender,updateBirthdate;
+    ToggleButton updateGenderToggle;
     UserDBHelper userDBHelper;
     SQLiteDatabase sqLiteDatabase;
     String searchName;
@@ -37,16 +39,18 @@ public class SearchContactActivity extends ActionBarActivity {
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
 
-        display_email = (TextView) findViewById(R.id.tvEmailFound);
-        display_mobile = (TextView) findViewById(R.id.tvMobileNumberFound);
+        //display_name = (TextView) findViewById(R.id.tvNameFound);
+        //display_surname = (TextView) findViewById(R.id.tvSurnameFound);
         search_name = (EditText) findViewById(R.id.etSearchName);
 
         updateName = (EditText) findViewById(R.id.etNewName);
-        updateMobile = (EditText) findViewById(R.id.etNewMobile);
-        updateEmail = (EditText) findViewById(R.id.etNewEmail);
+        updateSurname = (EditText) findViewById(R.id.etNewSurname);
+        //updateGender = (EditText) findViewById(R.id.etNewGender);
+        updateBirthdate = (EditText) findViewById(R.id.etNewBirthdate);
+        updateGenderToggle = (ToggleButton) findViewById(R.id.NewToggleSex);
 
-        display_email.setVisibility(View.GONE);
-        display_mobile.setVisibility(View.GONE);
+       // display_name.setVisibility(View.GONE);
+       // display_surname.setVisibility(View.GONE);
 
 
         Intent intent = getIntent();
@@ -88,21 +92,37 @@ public class SearchContactActivity extends ActionBarActivity {
 
         if (cursor.moveToFirst()) {
 
-            String MOBILE = cursor.getString(0);
-            String EMAIL = cursor.getString(1);
-            newName = searchName;
+            String NAME = cursor.getString(0);
+            String SURNAME = cursor.getString(1);
+            String GENDER = cursor.getString(2);
+            String BIRTHDATE = cursor.getString(3);
+           // newName = searchName;
 
-            updateEmail.setText(EMAIL);
-            updateName.setText(newName);
-            updateMobile.setText(MOBILE);
+           // updateGender.setText(GENDER);
+            updateName.setText(NAME);
+            updateSurname.setText(SURNAME);
+            updateBirthdate.setText(BIRTHDATE);
+
+            updateGenderToggle.toggle();
+            if(GENDER=="Male"){
+               updateGenderToggle.setSelected(false);
+
+            }
+            else if(GENDER=="Female"){
+                updateGenderToggle.setSelected(true);
+            }
 
 
-            display_mobile.setText(MOBILE);
-            display_email.setText(EMAIL);
 
-            display_email.setVisibility(View.VISIBLE);
-            display_mobile.setVisibility(View.VISIBLE);
+           // display_name.setText(NAME);
+           // display_surname.setText(SURNAME);
+
+           // display_name.setVisibility(View.VISIBLE);
+           // display_surname.setVisibility(View.VISIBLE);
         }
+        if (searchContact())
+            Toast.makeText(getBaseContext(), "Contact Deleted: " + searchName, Toast.LENGTH_LONG).show();
+        else Toast.makeText(getBaseContext(), "Contact Not Found: " + searchName, Toast.LENGTH_LONG).show();
     }
     public boolean searchContact() {
         boolean found = false;
@@ -144,31 +164,38 @@ public class SearchContactActivity extends ActionBarActivity {
     public void updateContact(View view) {
         userDBHelper = new UserDBHelper(getApplicationContext());
         sqLiteDatabase = userDBHelper.getWritableDatabase();
-        String name, email, mobile;
+        String name, surname,gender,birthdate;
 
         name = updateName.getText().toString();
-        mobile = updateMobile.getText().toString();
-        email = updateEmail.getText().toString();
+        surname = updateSurname.getText().toString();
+        gender = updateGenderToggle.getText().toString();
+        birthdate = updateBirthdate.getText().toString();
 
-        int count = userDBHelper.updateInformation(searchName, name, mobile, email, sqLiteDatabase);
+        int count = userDBHelper.updateInformation(searchName, name, surname, gender,birthdate, sqLiteDatabase);
 
-        Toast.makeText(getApplicationContext(), count + " contact updated ", Toast.LENGTH_LONG).show();
-        finish();
+        if (count>0) {
+            Toast.makeText(getApplicationContext(), count + " contact updated ", Toast.LENGTH_LONG).show();
+            finish();
+        }
+        else Toast.makeText(getApplicationContext(),  "contact does not exist ", Toast.LENGTH_LONG).show();
     }
 
     public void updateContact() {
         userDBHelper = new UserDBHelper(getApplicationContext());
         sqLiteDatabase = userDBHelper.getWritableDatabase();
-        String name, email, mobile;
+        String name, surname,gender,birthdate;
 
         name = updateName.getText().toString();
-        mobile = updateMobile.getText().toString();
-        email = updateEmail.getText().toString();
+        surname = updateSurname.getText().toString();
+        gender = updateGenderToggle.getText().toString();
+        birthdate= updateBirthdate.getText().toString();
 
-        int count = userDBHelper.updateInformation(searchName, name, mobile, email, sqLiteDatabase);
-
-        Toast.makeText(getApplicationContext(), count + " contact updated ", Toast.LENGTH_LONG).show();
-        finish();
+        int count = userDBHelper.updateInformation(searchName, name, surname, gender,birthdate, sqLiteDatabase);
+        if (count>0) {
+            Toast.makeText(getApplicationContext(), count + " contact updated ", Toast.LENGTH_LONG).show();
+            finish();
+        }
+        else Toast.makeText(getApplicationContext(),"contact does not exist ", Toast.LENGTH_LONG).show();
     }
 
 

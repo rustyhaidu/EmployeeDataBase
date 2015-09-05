@@ -11,52 +11,34 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:hint="Enter Name"
         android:id="@+id/etSearchName"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/bSearchForContact"
-        android:layout_toStartOf="@+id/bSearchForContact" />
+        android:layout_alignRight="@+id/bUpdateContact"
+        android:layout_alignEnd="@+id/bUpdateContact" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search Contact"
-        android:id="@+id/bSearchForContact"
-        android:layout_alignBottom="@+id/etSearchName"
+        android:id="@+id/bSearchForEmployee"
+        android:onClick="searchContact"
+        android:layout_alignTop="@+id/etSearchName"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="searchContact"/>
+        android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:hint="Email Here"
-        android:id="@+id/tvEmailFound"
-        android:layout_below="@+id/bDeleteContact"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:hint="Mobile Number Here"
-        android:id="@+id/tvMobileNumberFound"
-        android:layout_below="@+id/tvEmailFound"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Delete"
         android:id="@+id/bDeleteContact"
-        android:layout_below="@+id/etSearchName"
-        android:layout_toRightOf="@+id/etSearchName"
-        android:layout_alignRight="@+id/bSearchForContact"
-        android:layout_alignEnd="@+id/bSearchForContact"
-        android:onClick="deleteContact"/>
+        android:onClick="deleteContact"
+        android:layout_alignBaseline="@+id/bUpdateContact"
+        android:layout_alignBottom="@+id/bUpdateContact"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -65,28 +47,19 @@
         android:text="Update Contact"
         android:id="@+id/textView2"
         android:textStyle="bold"
-        android:layout_below="@+id/tvMobileNumberFound"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/bDeleteContact"
-        android:layout_alignEnd="@+id/bDeleteContact" />
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update"
         android:id="@+id/bUpdateContact"
-        android:layout_below="@+id/etSearchName"
-        android:layout_toLeftOf="@+id/bSearchForContact"
-        android:layout_toStartOf="@+id/bSearchForContact"
-        android:onClick="updateContact"/>
+        android:onClick="updateContact"
+        android:layout_below="@+id/bSearchForEmployee"
+        android:layout_centerHorizontal="true" />
 
 
 
@@ -94,33 +67,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etNewName"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/bDeleteContact"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/editText" />
+        android:layout_alignRight="@+id/bSearchForEmployee"
+        android:layout_alignEnd="@+id/bSearchForEmployee" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etNewMobile"
+        android:id="@+id/etNewSurname"
+        android:layout_alignParentStart="true"
+
         android:layout_below="@+id/etNewName"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etNewEmail"
-        android:layout_below="@+id/etNewMobile"
-        android:layout_alignParentLeft="true"
+        android:id="@+id/etNewBirthdate"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/bDeleteContact"
-        android:layout_alignEnd="@+id/bDeleteContact" />
+
+        android:layout_below="@+id/NewToggleSex"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/bSearchForEmployee"
+        android:layout_alignEnd="@+id/bSearchForEmployee" />
+
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New ToggleButton"
+        android:textOff="Male"
+        android:textOn="Female"
+        android:id="@+id/NewToggleSex"
+
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etNewSurname"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

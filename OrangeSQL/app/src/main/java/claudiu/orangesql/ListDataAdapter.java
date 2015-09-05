@@ -38,9 +38,10 @@ public class ListDataAdapter extends ArrayAdapter{
             LayoutInflater layoutInflater = (LayoutInflater)this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = layoutInflater.inflate(R.layout.rowlayout,parent,false);
             layoutHandler = new LayoutHandler();
-            layoutHandler.NAME = (TextView)row.findViewById(R.id.tvUserName);
-            layoutHandler.MOB = (TextView) row.findViewById(R.id.tvUserMob);
-            layoutHandler.EMAIL = (TextView) row.findViewById(R.id.tvUserEmail);
+            layoutHandler.NAME = (TextView)row.findViewById(R.id.tvEmployeeName);
+            layoutHandler.SURNAME = (TextView) row.findViewById(R.id.tvEmployeeSurname);
+            layoutHandler.GENDER = (TextView) row.findViewById(R.id.tvEmployeeGender);
+            layoutHandler.BIRTHDATE = (TextView) row.findViewById(R.id.tvEmployeeBirthdate);
             row.setTag(layoutHandler);
         }
         else
@@ -49,13 +50,14 @@ public class ListDataAdapter extends ArrayAdapter{
         }
         dataProvider = (DataProvider) this.getItem(position);
         layoutHandler.NAME.setText(dataProvider.getName());
-        layoutHandler.MOB.setText(dataProvider.getMob());
-        layoutHandler.EMAIL.setText(dataProvider.getEmail());
+        layoutHandler.SURNAME.setText(dataProvider.getSurname());
+        layoutHandler.GENDER.setText(dataProvider.getGender());
+        layoutHandler.BIRTHDATE.setText(dataProvider.getBirthdate());
         return row;
     }
     static class LayoutHandler
     {
-        TextView NAME,MOB,EMAIL;
+        TextView NAME,SURNAME,GENDER,BIRTHDATE;
     }
 
 }

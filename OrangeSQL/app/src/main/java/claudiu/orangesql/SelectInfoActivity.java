@@ -50,11 +50,12 @@ public class SelectInfoActivity extends AppCompatActivity{
         if (cursor.moveToFirst()){
 
             do {
-                String name,mob,email;
+                String name,surname,gender,birthdate;
                 name = cursor.getString(0);
-                mob = cursor.getString(1);
-                email = cursor.getString(2);
-                DataProvider dataProvider = new DataProvider(name,mob,email);
+                surname = cursor.getString(1);
+                gender = cursor.getString(2);
+                birthdate = cursor.getString(3);
+                DataProvider dataProvider = new DataProvider(name,surname,gender,birthdate);
                 listDataAdapter.add(dataProvider);
             }
                 while (cursor.moveToNext());
@@ -74,7 +75,7 @@ public class SelectInfoActivity extends AppCompatActivity{
              String selectedName = provider.getName();
 
 
-                String message = "You pressed me !"+position+" "+selectedName;
+                String message = position+" "+selectedName;
                 Toast.makeText(SelectInfoActivity.this, message, Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(SelectInfoActivity.this,SearchContactActivity.class);

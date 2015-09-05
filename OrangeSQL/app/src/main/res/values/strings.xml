@@ -3,4 +3,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="string_sex_type">
+        <item>male</item>
+        <item>female</item>
+    </string-array>
 </resources>
