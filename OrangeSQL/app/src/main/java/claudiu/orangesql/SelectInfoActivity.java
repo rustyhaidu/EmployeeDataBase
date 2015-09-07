@@ -45,7 +45,7 @@ public class SelectInfoActivity extends AppCompatActivity{
         userDBHelper = new UserDBHelper(getApplicationContext());
         sqLiteDatabase = userDBHelper.getReadableDatabase();
 
-        cursor = userDBHelper.selectInfo(sqLiteDatabase);
+        cursor = userDBHelper.selectInfo(sqLiteDatabase);// TODO - CODE REVIEW - andrei | 9/7/15 - The cursor is never closed! You should always close cursor when you've finished working with it.
 
         if (cursor.moveToFirst()){
 

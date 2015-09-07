@@ -3,6 +3,7 @@ package claudiu.orangesql;
 /**
  * Created by claudiu.haidu on 7/24/2015.
  */
+// TODO - CODE REVIEW - andrei | 9/7/15 - The name of the class does not resemble its contents. This is you User class!!
 public class DataProvider {
 
     private String name;
@@ -43,7 +44,7 @@ public class DataProvider {
     }
 
 
-
+    // TODO - CODE REVIEW - andrei | 9/7/15 - Try to have a consistent order of members and methods in your classes. The constructor should be before the rest of the methods for readability's sake.
 
     public DataProvider(String name, String surname, String gender,String birthdate){
         this.name = name;

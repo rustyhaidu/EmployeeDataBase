@@ -3,6 +3,7 @@ package claudiu.orangesql;
 /**
  * Created by claudiu.haidu on 7/16/2015.
  */
+// TODO - CODE REVIEW - andrei | 9/7/15 - What is the point of this structure? Why do we have a UserContract class? What is the purpose of the NewUserInfo class? Why does it have to be part of UserContract?
 public class UserContract {
 
     public static abstract class NewUserInfo{

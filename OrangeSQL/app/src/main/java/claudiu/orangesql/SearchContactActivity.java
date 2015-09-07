@@ -19,6 +19,8 @@ import android.widget.ToggleButton;
  * Created by Claudiu on 9/1/2015.
  */
 public class SearchContactActivity extends ActionBarActivity {
+
+    // TODO - CODE REVIEW - andrei | 9/7/15 - You have unused members. Delete them!
     TextView display_name, display_surname;
     EditText search_name, updateName, updateSurname, updateGender,updateBirthdate;
     ToggleButton updateGenderToggle;
@@ -65,6 +67,7 @@ public class SearchContactActivity extends ActionBarActivity {
         }
     }
 
+    // TODO - CODE REVIEW - andrei | 9/7/15 - Delete commented code. If you'll need it later, you can find it in GIT.
     /*public void searchContact(View view)
     {
         searchName = search_name.getText().toString();

@@ -15,6 +15,9 @@ import android.widget.ToggleButton;
  */
 public class RegistrationActivity extends Activity{
 
+    // TODO - CODE REVIEW - andrei | 9/7/15 -  Please format the code
+
+  // TODO - CODE REVIEW - andrei | 9/7/15 - Use private access-modifier for internal members.
 EditText EmployeetName,EmployeeSurname,EmployeeBirthdate;
     ToggleButton EmployeeGender;
 Context context=this;
@@ -41,7 +44,7 @@ TextView tvUIHelperObject;
         String surname = EmployeeSurname.getText().toString();
         String gender= EmployeeGender.getText().toString();
         String birthdate= EmployeeBirthdate.getText().toString();
-
+      // TODO - CODE REVIEW - andrei | 9/7/15 - I/O operations (i.e reading / writing in database MUST be executed on a background thread, because you'r blocking the UI otherwise.
         userDBHelper = new UserDBHelper(context);
         sqLiteDatabase=userDBHelper.getWritableDatabase();
         userDBHelper.insertInfo(name, surname, gender,birthdate, sqLiteDatabase);

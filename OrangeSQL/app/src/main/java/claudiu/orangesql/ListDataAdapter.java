@@ -13,6 +13,7 @@ import java.util.List;
 /**
  * Created by claudiu.haidu on 7/24/2015.
  */
+// TODO - CODE REVIEW - andrei | 9/7/15 - Please reformat all classes. It's hard to read the code this way. Every method has a different indentation. Whitespaces are missing or too many.. It's VERY chaotic.
 public class ListDataAdapter extends ArrayAdapter{
     DataProvider  dataProvider;
    List list = new ArrayList();
@@ -57,6 +58,8 @@ public class ListDataAdapter extends ArrayAdapter{
     }
     static class LayoutHandler
     {
+
+      // TODO - CODE REVIEW - andrei | 9/7/15 - non static-final members should have lower-case names with camelCasing.
         TextView NAME,SURNAME,GENDER,BIRTHDATE;
     }
 
